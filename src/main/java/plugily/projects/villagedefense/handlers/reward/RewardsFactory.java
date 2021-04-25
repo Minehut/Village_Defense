@@ -24,7 +24,6 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import pl.plajerlair.commonsbox.minecraft.configuration.ConfigUtils;
-import pl.plajerlair.commonsbox.minecraft.engine.ScriptEngine;
 import plugily.projects.villagedefense.Main;
 import plugily.projects.villagedefense.arena.Arena;
 import plugily.projects.villagedefense.arena.ArenaRegistry;
@@ -106,16 +105,6 @@ public class RewardsFactory {
             if (player != null)
               player.performCommand(command);
 
-            break;
-          case SCRIPT:
-            ScriptEngine engine = new ScriptEngine();
-
-            if (player != null)
-              engine.setValue("player", player);
-
-            engine.setValue("server", Bukkit.getServer());
-            engine.setValue("arena", arena);
-            engine.execute(command);
             break;
           default:
             break;
